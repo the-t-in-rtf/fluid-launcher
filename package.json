@@ -6,7 +6,9 @@
   "scripts": {
     "pretest": "node node_modules/rimraf/bin.js coverage/*",
     "test": "node node_modules/istanbul/lib/cli.js cover --report none --print none --include-pid tests/js/all-tests.js",
-    "posttest": "node node_modules/istanbul/lib/cli.js report --root coverage --dir reports lcov text-summary"
+    "posttest": "node node_modules/istanbul/lib/cli.js report --root coverage --dir reports lcov text-summary",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bin": "./src/js/wrapper.js",
   "repository": {
@@ -22,7 +24,8 @@
   "dependencies": {
     "infusion": "3.0.0-dev.20170322T234120Z.278de35",
     "kettle": "1.6.0",
-    "yargs": "7.1.0"
+    "yargs": "7.1.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "eslint": "3.19.0",
@@ -34,5 +37,6 @@
     "jsonlint": "1.6.2",
     "node-jqunit": "1.1.4",
     "rimraf": "2.6.1"
-  }
+  },
+  "snyk": true
 }
